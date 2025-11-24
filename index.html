@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Peek</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Planet Peek</h1>
+        <p class="tagline">Take a peek at countries around the world.</p>
+
+        <div class="controls">
+            <input type="text" id="countryInput" placeholder="Enter country name">
+            <select id="regionFilter">
+                <option value="">All Regions</option>
+                <option value="Africa">Africa</option>
+                <option value="Americas">Americas</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="Oceania">Oceania</option>
+            </select>
+            <select id="sortOption">
+                <option value="">Sort By</option>
+                <option value="populationAsc">Population ↑</option>
+                <option value="populationDesc">Population ↓</option>
+                <option value="areaAsc">Area ↑</option>
+                <option value="areaDesc">Area ↓</option>
+            </select>
+            <button id="searchBtn">Search</button>
+        </div>
+
+        <div id="error" class="error"></div>
+        <div id="results" class="results"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
