@@ -1,35 +1,29 @@
-# Global Info Explorer
+Planet Peek is a simple and interactive web application that allows users to search for any country in the world and view detailed information about it. The app displays useful details such as the capital city, population, region, sub-region, languages, currencies, borders, area, calling code, and time zones. It is designed to be easy to use, responsive, and accessible both locally and through an online load-balanced setup.
 
-This project is a simple country information explorer built using plain HTML, CSS and vanilla JavaScript. It fetches data from the REST Countries API and displays searchable, filterable country cards with a detail modal.
+The application allows users to search for any country and instantly view comprehensive information about it. It includes a clean and responsive design, and it provides error messages when a user enters an invalid country name. The app works smoothly when opened locally on a computer and is also configured to run through an Nginx load balancer, which distributes traffic across two backend web servers
 
-Important: Submission & Demo Requirements
 
-- You are required to submit a link to your GitHub repository containing all of your source code. Make sure to include a `.gitignore` file to exclude unnecessary files and to prevent sensitive information, such as API keys, from being uploaded.
-- For grading purposes, if you must provide any API keys, provide them in the repository comment section (for example, an issue or PR comment) rather than committing secrets to the codebase. DO NOT commit secret keys in plain text for production use; use a backend proxy or environment variables instead.
-- Alongside your code, provide a short demo video (maximum 2 minutes) demonstrating how to run the app locally and how to access it via the load balancer. Show the key features and interactions (search, filter, country details).
+How to Run the Application Locally
 
-README should include:
-- How to run locally
-- How to deploy to two standard web servers and behind a load balancer (example steps)
-- API information and links
-- Challenges and solutions
-- Credits and attributions
+Clone the repository from GitHub and open it in Visual Studio Code or any code editor. You can either open index.html directly in a browser or use the Live Server extension for a local development environment.
 
-Local setup
-1. Open `index.html` in a modern browser, or serve the folder with a simple static server:
+How to Deploy the Application to the Web Servers
 
-```powershell
-cd 'C:\Users\CHRIS\OneDrive\Desktop\summarives'
-python -m http.server 5500
-# then open http://localhost:5500
-```
+The setup uses one load balancer and two backend web servers. Upload your project files to /var/www/planetpeek on both backend servers and configure Nginx to serve the site. On the load balancer, configure an upstream pointing to the backend IPs and restart Nginx to enable load balancing.
 
-2. Use the search box to find countries. Click a country card to view details.
+Enabling HTTPS
 
-If network fetch fails, the app automatically falls back to a small embedded dataset so the UI remains interactive for testing.
+Run Certbot on the load balancer to generate an SSL certificate and secure the site. Choose the redirect option to forward all HTTP traffic to HTTPS. The site will then show as secure in browsers.
 
-API Credits
-- REST Countries API — https://restcountries.com
+API Used
 
-Security note
-- Never commit production API keys. Use `.gitignore` to exclude secrets and use a backend to store keys when required.
+The app uses the REST Countries API (https://restcountries.com/v3.1/name/{country}) to fetch country details like population, languages, borders, flags, and time zones. Documentation: https://restcountries.com
+.
+
+Project File Structure
+
+The project contains index.html (structure), style.css (appearance), and script.js (functionality).
+
+
+
+Demo video link: https://youtu.be/ooTyqI-qPOQ
